@@ -72,9 +72,9 @@ function handleModalOpen(event) {
   const currentProduct = event.target.closest(".gallery-item");
 }
 function createMarkup(arr) {
-  return arr;
-  map(
-    ({ preview, original, description }) => `
+  return arr
+    .map(
+      ({ preview, original, description }) => `
     <li class="gallery-item">
     <a class="gallery-link" href="${original}">
       <img
@@ -86,5 +86,6 @@ function createMarkup(arr) {
     </a>
   </li>
 `
-  ).join("");
+    )
+    .join("");
 }
