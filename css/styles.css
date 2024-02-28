@@ -1,7 +1,5 @@
 img {
   display: block;
-  max-width: 100%;
-  height: auto;
 }
 ul {
   list-style: none;
@@ -20,8 +18,14 @@ ul {
 }
 .gallery-item {
   display: flex;
-  width: 360px;
-  height: 200px;
   background-color: white;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+.gallery-item img {
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: contain;
+  width: 360px;
+  height: 200px;
 }
