@@ -96,10 +96,9 @@ function onImageClick(evt) {
   }
   const modalMarkup = `<img width="100%" height="100%" src="${evt.target.dataset.source}">`;
   const instance = basicLightbox.create(modalMarkup, {
-    onShow: (instance) =>
-      galleryList.addEventListener("keydown", instanceClose),
+    onShow: (instance) => container.addEventListener("keydown", instanceClose),
     onclose: (instance) =>
-      galleryList.removeEventListener("keydown", instanceClose),
+      container.removeEventListener("keydown", instanceClose),
   });
   function instanceClose(evt) {
     if (evt.code === "Escape") {
