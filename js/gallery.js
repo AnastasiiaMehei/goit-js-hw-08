@@ -101,7 +101,7 @@ function onImageClick(evt) {
       container.removeEventListener("keydown", instanceClose),
   });
   function instanceClose(evt) {
-    if (evt.code === "Escape") {
+    if (evt.key === "Escape") {
       instance.close();
     }
   }
