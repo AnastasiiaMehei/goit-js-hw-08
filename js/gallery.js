@@ -89,12 +89,13 @@ container.insertAdjacentHTML("beforeend", createGalleryMarkup(images));
 container.addEventListener("click", onImageClick);
 
 function onImageClick(evt) {
-  blockStandartAction(evt);
+  evt.preventDefault();
+
   if (evt.target.nodeName !== "IMG") {
     return;
   }
   const instance = basicLightbox.create(
-    `<img src="${evt.target.dataset.source}" width:"100%" height:"100%">`
+    `<img src="${evt.target.dataset.source}" width="100%" height="100%">`
   );
   instance.show();
   container.addEventListener("keydown", (evt) => {
@@ -102,7 +103,5 @@ function onImageClick(evt) {
       instance.close();
     }
   });
-}
-function blockStandartAction(evt) {
-  evt.preventDefault();
+  container.removeEventListener("keydown");
 }
