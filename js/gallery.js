@@ -91,13 +91,13 @@ container.addEventListener("click", onImageClick);
 function onImageClick(evt) {
   evt.preventDefault();
 
-  if (evt.currentTarget === evt.target) {
+  if (evt.currentTarget === evt.target.classList.contains("gallery-image")) {
     return;
   }
   const modalMarkup = `<img width="100%" height="100%" src="${evt.target.dataset.source}">`;
   const instance = basicLightbox.create(modalMarkup, {
     onShow: (instance) => container.addEventListener("keydown", instanceClose),
-    onclose: (instance) =>
+    onClose: (instance) =>
       container.removeEventListener("keydown", instanceClose),
   });
   function instanceClose(evt) {
